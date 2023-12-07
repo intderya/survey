@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="yenia"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-12-07 04:19:39 &#214;S"/>
+        <attribute name="created" value="eWVuaWE7TEFQVE9QLUM3T05QVVVGOzIwMjMtMTItMDc7MDI6MjQ6MzMgw5ZTOzMwNTc="/>
+        <attribute name="edited" value="eWVuaWE7TEFQVE9QLUM3T05QVVVGOzIwMjMtMTItMDc7MDQ6MTk6Mzkgw5ZTOzU7MzE4MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="yes, no, female, male, mno, fno, myes, fyes, participant" type="Integer" array="False" size=""/>
+            <declare name="continue, gender, coffee" type="String" array="False" size=""/>
+            <assign variable="female" expression="0"/>
+            <assign variable="male" expression="0"/>
+            <assign variable="yes" expression="0"/>
+            <assign variable="no" expression="0"/>
+            <assign variable="fno" expression="0"/>
+            <assign variable="mno" expression="0"/>
+            <assign variable="fyes" expression="0"/>
+            <assign variable="myes" expression="0"/>
+            <assign variable="continue" expression="&quot;yes&quot;"/>
+            <assign variable="participant" expression="0"/>
+            <while expression="continue=&quot;yes&quot;">
+                <assign variable="participant" expression="participant+1"/>
+                <output expression="&quot;What is your gender? (female or male)&quot;" newline="True"/>
+                <input variable="gender"/>
+                <output expression="&quot;Did you like the coffee? (yes or no)&quot;" newline="True"/>
+                <input variable="coffee"/>
+                <if expression="gender=&quot;female&quot;">
+                    <then>
+                        <assign variable="female" expression="female+1"/>
+                    </then>
+                    <else>
+                        <assign variable="male" expression="male+1"/>
+                    </else>
+                </if>
+                <if expression="gender=&quot;female&quot; and coffee=&quot;yes&quot;">
+                    <then>
+                        <assign variable="fyes" expression="fyes+1"/>
+                    </then>
+                    <else>
+                        <if expression="gender=&quot;female&quot; and coffee=&quot;no&quot;">
+                            <then>
+                                <assign variable="fno" expression="fno+1"/>
+                            </then>
+                            <else>
+                                <if expression="gender=&quot;male&quot; and coffee=&quot;no&quot;">
+                                    <then>
+                                        <assign variable="mno" expression="mno+1"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="myes" expression="myes+1"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Do you want to continue the survey? (yes or no) &quot;" newline="True"/>
+                <input variable="continue"/>
+            </while>
+            <output expression="&quot;total number of participants:&quot;&amp;participant&amp;&quot;   &quot;&amp;&quot;number of females participants:&quot;&amp;female&amp;&quot;  &quot;&amp;&quot;number of males participants:&quot;&amp;male&amp;&quot;   &quot;&amp;&quot;number of females who don't like the coffee:&quot;&amp;fno&amp;&quot;   &quot;&amp;&quot;number of females who like the coffee:&quot;&amp;fyes&amp;&quot;   &quot;&amp;&quot;number of males who don't like the coffee:&quot;&amp;mno&amp;&quot;   &quot;&amp;&quot;number of males who like the coffee:&quot;&amp;myes" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
